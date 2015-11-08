@@ -1,0 +1,73 @@
+% a simple template for typesetting novels
+
+
+\documentclass[12pt,twoside]{book}
+\usepackage{wallpaper} % used for setting an image on the cover page
+\usepackage{tikz} % a package for drawing
+\usepackage{palatino} % sets the font family. Other built-in font families are times, bookman, charter...
+
+% \definecolor[named]{color1}{rgb}{.2,.4,.6}  % can define colors for headings, title, etc.
+
+\pagestyle{empty} % removes the page number
+\ThisCenterWallPaper{1.12}{cover.png} % the first argument resizes the image, the second argument is the image file for the cover page
+
+\setlength{\parskip}{0pt}
+
+\begin{document}
+
+\begin{tikzpicture}[remember picture,overlay] % this drawing is the title/author name heading- you'll probably want to change at least some of the settings here
+
+\node [rectangle, rounded corners, fill=white, opacity=0.75,  minimum width=17cm, minimum height=5cm] (box) at (6, -14) (box){};  % this makes a semi-transparent white rectangle. Change the size using minimum height/width. The coordinates after `at' set the box location on the page. 
+
+\node[yshift=-1.75cm] at (box.north){{\fontsize{2cm}{1em}\selectfont The title goes here}}; % default location is horizonally centered in the box. The north keyword sets the text at the top of the box, and the yshift moves it up and down. 
+
+\node[yshift=-3.5cm] at (box.north){{\fontsize{1cm}{1em}\selectfont Author name}};
+
+\end{tikzpicture}
+
+  \frontmatter % the frontmatter is numbered with roman numerals 
+ 
+  \pagestyle{empty} 
+
+    \chapter*{Acknowledgements} % the asterisk eliminates the `Chapter X' heading so that this chapter isn't numbered
+	I couldn't have done this without you!
+
+    \chapter*{Preface}
+	The preface goes here. 
+
+    \tableofcontents
+
+	
+	\chapter*{Dedication}
+	Dedicate your book! 
+
+  \mainmatter % now the pages are numbered with arabic numerals
+
+	
+\part{The First} % if your book has parts
+    \chapter{The First}
+    	The main content begins here!
+	
+   \section{Maybe your book has sections}
+         Here is some section content!
+ 
+
+\chapter{the Second}	
+        Yes, your book can have more than one chapter, if you wish. 
+
+
+\chapter*{Afterword}
+         \addcontentsline{toc}{chapter}{Afterword}
+	\chaptermark{Afterword}
+	\markboth{Afterword}{Afterword}
+	\setcounter{chapter}{4}
+	\setcounter{section}{0}
+	
+Perhaps there is more explaining to do. If you want this to be an Epilogue, change all the above instances of ``Afterword'' to ``Epilogue.'' 
+
+% Maybe your book has appendices, who knows? 
+    \appendix
+      \chapter{An Appendix}
+      \chapter{Another Appendix}
+
+\end{document}
