@@ -1,2 +1,2 @@
 # novel-template
-a simple LaTex template for nontechnical writing
+a simple LaTeX template for nontechnical writing
